@@ -1,0 +1,140 @@
+.dark-theme {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+.card {
+    background-color: #2a2a2a;
+    border: 1px solid #404040;
+}
+
+.card-header {
+    background-color: #333333;
+    border-bottom: 1px solid #404040;
+    color: #e0e0e0;
+}
+
+.nav-tabs .nav-link {
+    color: #e0e0e0;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #2a2a2a;
+    border-color: #404040;
+    color: #ffffff;
+}
+
+.form-control, .form-select {
+    background-color: #333333;
+    border: 1px solid #404040;
+    color: #e0e0e0;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #383838;
+    border-color: #505050;
+    color: #ffffff;
+}
+
+#tradingview-widget {
+    height: 600px;
+    margin-bottom: 20px;
+}
+
+.performance-metric {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #333333;
+}
+
+.metric-positive {
+    color: #4caf50;
+}
+
+.metric-negative {
+    color: #f44336;
+}
+
+.table {
+    color: #e0e0e0;
+}
+
+.table thead th {
+    background-color: #333333;
+    border-color: #404040;
+}
+
+.table td {
+    border-color: #404040;
+}
+
+#positions-table {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.chart-container {
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.navbar-text span {
+    margin-right: 20px;
+    color: #e0e0e0;
+}
+
+.btn-success {
+    background-color: #2e7d32;
+    border-color: #1b5e20;
+}
+
+.btn-danger {
+    background-color: #c62828;
+    border-color: #b71c1c;
+}
+
+.alert {
+    background-color: #333333;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+
+/* Animation for real-time updates */
+@keyframes highlight {
+    0% { background-color: #2e7d32; }
+    100% { background-color: transparent; }
+}
+
+.highlight {
+    animation: highlight 1s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    #tradingview-widget {
+        height: 400px;
+    }
+    
+    .chart-container {
+        height: 200px;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #505050;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Trading System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        .card {
+            background-color: #2d2d2d;
+            border: 1px solid #404040;
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: #404040;
+            color: #ffffff;
+        }
+        .metric-positive {
+            color: #4caf50;
+        }
+        .metric-negative {
+            color: #f44336;
+        }
+        .performance-metric {
+            padding: 10px;
+            border-bottom: 1px solid #404040;
+        }
+        .chart-container {
+            height: 300px;
+            margin-bottom: 20px;
+        }
+        #tradingview-widget {
+            height: 600px;
+            margin-bottom: 20px;
+        }
+        .table {
+            color: #ffffff;
+        }
+        .table thead th {
+            border-color: #404040;
+        }
+        .table td {
+            border-color: #404040;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-4">
+        <div class="row">
+            <!-- Trading Controls -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Trading Controls</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="exchange-select">Exchange</label>
+                            <select id="exchange-select" class="form-select"></select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pair-select">Trading Pair</label>
+                            <select id="pair-select" class="form-select"></select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="order-type">Order Type</label>
+                            <select id="order-type" class="form-select">
+                                <option value="market">Market</option>
+                                <option value="limit">Limit</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="position-size">Position Size</label>
+                            <input type="number" id="position-size" class="form-control" step="0.0001">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button id="buy-btn" class="btn btn-success">Buy</button>
+                            <button id="sell-btn" class="btn btn-danger">Sell</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Summary -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Portfolio Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <h3 id="portfolio-value">Portfolio: $0.00</h3>
+                        <div id="performance-metrics"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Chart Area -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Market Overview</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="tradingview-widget"></div>
+                    </div>
+                </div>
+                
+                <!-- Positions Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Active Positions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="positions-table"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Analysis Charts -->
+            <div class="col-md-3">
+                <!-- Volatility Chart -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Market Volatility</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="volatility-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Correlation Matrix -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Correlation Matrix</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="correlation-matrix" class="chart-container"></div>
+                    </div>
+                </div>
+                
+                <!-- Market Sentiment -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Market Sentiment</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="sentiment-analysis" class="chart-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
